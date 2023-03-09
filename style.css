@@ -1,0 +1,206 @@
+@font-face {
+    font-family: 'HankenGrotesk';
+    src: url(/assets/fonts/static/HankenGrotesk-Medium.ttf);
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HankenGrotesk';
+    src: url(/assets/fonts/static/HankenGrotesk-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HankenGrotesk';
+    src: url(/assets/fonts/static/HankenGrotesk-ExtraBold.ttf);
+    font-weight: 800;
+    font-style: normal;
+}
+:root {
+    --font: HankenGrotesk;
+    /* Primary */
+    --light-red: hsl(0, 100%, 67%);
+    --orangey-yellow: hsl(39, 100%, 56%);
+    --green-teal: hsl(166, 100%, 37%);
+    --cobalt-blue: hsl(234, 85%, 45%);
+    /* Gradient */
+    --light-slate-blue: hsl(252, 100%, 67%); /* background */
+    --light-royal-blue: hsl(241, 81%, 54%);/* background */
+    --violet-blue: hsla(256, 72%, 46%, 1); /* circle*/
+    --persian-blue: hsla(241, 72%, 46%, 0); /* circle*/
+    /* Neutral */
+    --white: hsl(0, 0%, 100%);
+    --pale-blue: hsl(221, 100%, 96%);
+    --light-lavender: hsl(241, 100%, 89%);
+    --dark-gray-blue: hsl(224, 30%, 27%);
+}
+html {
+    font-size: 62.5%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: HankenGrotesk;
+    font-weight: 500;
+}
+.grid-container {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    justify-items: center;
+}
+.main-card {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    width: 100%;
+}
+.results {
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--light-lavender);
+    background: linear-gradient(var(--light-slate-blue), var(--light-royal-blue));
+    border-radius: 0px 0px 40px 40px;
+}
+.results h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+.results .circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    
+    position: relative;
+    background: linear-gradient(var(--violet-blue), var(--persian-blue));
+}
+.results .circle .circle__value {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 5rem;
+    color: var(--white);
+    font-weight: 800;
+}
+.results .circle .circle__text {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%,0);
+    font-size: 1.6rem;
+}
+.results__congrats {
+    margin: 20px 0px 10px 0px;
+    font-size: 2rem;
+    color: var(--white);
+}
+.results__paragraph {
+    font-size: 1.8rem;
+    width: 90%;
+    text-align: center;
+}
+
+.summary {
+    padding: 30px;
+}
+.summary h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--dark-gray-blue);
+}
+.summary .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.summary .card {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    /* background-color: bisque; */
+}
+.reaction {
+    background-color: hsla(0, 100%, 67%, 10%);
+}
+.reaction h3 {
+    color: var(--light-red);
+}
+.memory {
+    background-color: hsla(39, 100%, 56%, 10%);
+}
+.memory h3 {
+    color: var(--orangey-yellow);
+}
+.verbal {
+    background-color: hsl(166, 100%, 37%, 10%);
+}
+.verbal h3{
+    color: var(--green-teal);
+}
+.visual {
+    background-color: hsla(234, 85%, 45%, 10%);
+}
+.visual h3 {
+    color: var(--cobalt-blue);
+}
+.summary .card .card__title{
+    display: flex;
+    align-items: center;
+}
+.card .card__title h3 {
+    font-size: 1.8rem;
+    margin-left: 10px;
+}
+.card .card__score span{
+    font-size: 1.6rem;
+    color: hsla(224, 30%, 27%, 50%);
+    font-weight: 800;
+    /* opacity: 0.8; */
+}
+.card .card__score b{
+    opacity: 1;
+    color: var(--dark-gray-blue);
+    font-weight: 800;
+}
+
+.summary button {
+    width: 100%;
+    display: block;
+    padding: 15px 0;
+    margin: 0 auto;
+    border: none;
+    font-family: var(--font);
+    font-size: 2rem;
+    color: var(--white);
+    background-color: var(--dark-gray-blue);
+    border-radius: 30px;
+    cursor: pointer;
+}
+.summary button:active {
+    background: linear-gradient(var(--light-slate-blue), var(--light-royal-blue));
+}
+
+@media screen and (min-width: 700px) {
+    .grid-container {
+        place-content: center;
+    }
+    .main-card {
+        grid-template-columns: 320px 350px;
+        grid-template-rows: min-content;
+        border-radius: 40px;
+        box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.2);
+    }
+    .results {
+        border-radius: 40px;
+    }
+}
